@@ -1,0 +1,47 @@
+az group create --name iolapDockerRgrp --location eastus
+
+{
+  "id": "/subscriptions/5c0cf4a1-8b1c-4bfe-a8f7-00cc4e176038/resourceGroups/iolapDockerRgrp",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "iolapDockerRgrp",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+
+az acr create --resource-group iolapDockerRgrp --name iolapevestacr --sku Basic --admin-enabled true
+
+{
+  "adminUserEnabled": true,
+  "creationDate": "2018-08-01T11:39:28.006855+00:00",
+  "id": "/subscriptions/5c0cf4a1-8b1c-4bfe-a8f7-00cc4e176038/resourceGroups/iolapDockerRgrp/providers/Microsoft.ContainerRegistry/registries/iolapevestacr",
+  "location": "eastus",
+  "loginServer": "iolapevestacr.azurecr.io",
+  "name": "iolapevestacr",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "iolapDockerRgrp",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "storageAccount": null,
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+
+az acr login --name iolapevestacr
+
+az acr list --resource-group iolapDockerRgrp --query "[].{acrLoginServer:loginServer}" --output table
+
+AcrLoginServer
+------------------------
+iolapevestacr.azurecr.io
+
+docker tag realtyevestflaskapp:latest iolapevestacr/realtyevestflaskapp:dev
+
+docker push iolapevestacr.azurecr.io/realtyevestflaskapp:dev
+
+az acr repository list --name iolapevestacr --output table
