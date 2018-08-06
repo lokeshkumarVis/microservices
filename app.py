@@ -1,7 +1,9 @@
 import sys, os
+'''
 from ReisApi import ReisApi
 from ReisApi import ReisCompRent
 from ReisApi import ReisCompSale
+'''
 import json
 import psycopg2
 import psycopg2.extras
