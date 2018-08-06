@@ -1,6 +1,6 @@
 import sys, os
 
-## Reis api is commented
+## Reis api is commented from use
 '''
 from ReisApi import ReisApi
 from ReisApi import ReisCompRent

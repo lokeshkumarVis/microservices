@@ -90,3 +90,46 @@ az acr build-task create --registry iolapevestacr --name buildaddressvalidation 
   "type": "Microsoft.ContainerRegistry/registries/buildTasks"
 }
 
+ACR Auto build Property Search:
+--------------------------------
+az acr build-task create --registry iolapevestacr --name buildpropertysearch --image propertysearch:{{.Build.ID}} --context https://github.com/lokeshkumarVis/property_search --branch master --git-access-token 1c4a648cd064d891e41dd1f817bd4274e145b269
+
+{
+  "alias": "buildpropertysearch",
+  "creationDate": "2018-08-06T20:46:41.201028+00:00",
+  "id": "/subscriptions/5c0cf4a1-8b1c-4bfe-a8f7-00cc4e176038/resourceGroups/iolapDockerRgrp/providers/Microsoft.ContainerRegistry/registries/iolapevestacr/buildTasks/buildpropertysearch",
+  "location": "eastus",
+  "name": "buildpropertysearch",
+  "platform": {
+    "cpu": 2,
+    "osType": "Linux"
+  },
+  "properties": {
+    "baseImageDependencies": null,
+    "baseImageTrigger": "Runtime",
+    "branch": "master",
+    "buildArguments": [],
+    "contextPath": null,
+    "dockerFilePath": "Dockerfile",
+    "imageName": null,
+    "imageNames": [
+      "propertysearch:{{.Build.ID}}"
+    ],
+    "isPushEnabled": true,
+    "noCache": false,
+    "provisioningState": "Succeeded",
+    "type": "Docker"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "iolapDockerRgrp",
+  "sourceRepository": {
+    "isCommitTriggerEnabled": true,
+    "repositoryUrl": "https://github.com/lokeshkumarVis/property_search",
+    "sourceControlAuthProperties": null,
+    "sourceControlType": "GitHub"
+  },
+  "status": "Enabled",
+  "tags": null,
+  "timeout": 3600,
+  "type": "Microsoft.ContainerRegistry/registries/buildTasks"
+}
