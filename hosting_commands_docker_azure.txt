@@ -133,3 +133,45 @@ az acr build-task create --registry iolapevestacr --name buildpropertysearch --i
   "timeout": 3600,
   "type": "Microsoft.ContainerRegistry/registries/buildTasks"
 }
+
+az acr build-task create --registry iolapevestacr --name buildmicroserveaddress --image microserveaddress:{{.Build.ID}} --context https://github.com/lokeshkumarVis/microservices --branch address --git-access-token 9f3eab615f71c5038d7b3562dbb3b041808804bc
+{
+  "alias": "buildmicroserveaddress",
+  "creationDate": "2018-08-08T13:52:13.307129+00:00",
+  "id": "/subscriptions/5c0cf4a1-8b1c-4bfe-a8f7-00cc4e176038/resourceGroups/iolapDockerRgrp/providers/Microsoft.ContainerRegistry/registries/iolapevestacr/buildTasks/buildmicroserveaddress",
+  "location": "eastus",
+  "name": "buildmicroserveaddress",
+  "platform": {
+    "cpu": 2,
+    "osType": "Linux"
+  },
+  "properties": {
+    "baseImageDependencies": null,
+    "baseImageTrigger": "Runtime",
+    "branch": "address",
+    "buildArguments": [],
+    "contextPath": null,
+    "dockerFilePath": "Dockerfile",
+    "imageName": null,
+    "imageNames": [
+      "microserveaddress:{{.Build.ID}}"
+    ],
+    "isPushEnabled": true,
+    "noCache": false,
+    "provisioningState": "Succeeded",
+    "type": "Docker"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "iolapDockerRgrp",
+  "sourceRepository": {
+    "isCommitTriggerEnabled": true,
+    "repositoryUrl": "https://github.com/lokeshkumarVis/microservices",
+    "sourceControlAuthProperties": null,
+    "sourceControlType": "GitHub"
+  },
+  "status": "Enabled",
+  "tags": null,
+  "timeout": 3600,
+  "type": "Microsoft.ContainerRegistry/registries/buildTasks"
+}
+
